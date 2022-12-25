@@ -7,8 +7,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { countries } from "../utils/countries";
+import { countries } from "../../utils/countries";
 
 const Register = () => {
   const [givenName, setGivenName] = useState("");
@@ -19,12 +18,12 @@ const Register = () => {
   const [company, setCompany] = useState("");
   const [country, setCountry] = useState("");
 
-  const navigate = useNavigate();
-
   return (
     <div className="flex flex-col w-3/5">
       <Box className="flex flex-col justify-center items-center p-2">
-        <Typography className="p-2">Register a new YACIS account</Typography>
+        <Typography variant="h6" className="p-2">
+          Register a new YACIS account
+        </Typography>
 
         <TextField
           label="Email"
@@ -102,7 +101,10 @@ const Register = () => {
           renderOption={(props, option) => (
             <Box
               component="li"
-              sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
+              sx={{
+                "& > img": { mr: 2, flexShrink: 0 },
+                backgroundColor: "#F6FFF8",
+              }}
               {...props}
             >
               <img
@@ -139,7 +141,7 @@ const Register = () => {
 
         <Divider variant="middle" sx={{ width: "100%", m: 1 }} />
 
-        <Typography className="p-1">
+        <Typography variant="body1" className="p-1">
           Already have an account?{" "}
           <u>
             <a href="/auth/login">Login</a>

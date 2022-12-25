@@ -10,6 +10,9 @@ module.exports = {
         spaceCadet: "#2E294E",
         cyberYellow: "#FFD400",
       },
+      fontFamily: {
+        roboto: ['"Roboto"', "sans-serif"],
+      },
     },
   },
   plugins: [],

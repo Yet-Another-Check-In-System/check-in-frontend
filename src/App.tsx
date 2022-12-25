@@ -5,25 +5,26 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import AuthenticationPage from "./components/AuthenticationPage";
+import Auth, { Login, Register } from "./components/Auth";
 import ErrorPage from "./components/ErrorPage";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import SiteLoader from "./loaders/SiteLoader";
+import Site from "./components/Site";
+import Checkin from "./components/Checkin";
 
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" errorElement={<ErrorPage />}>
         <Route path="auth">
-          <Route
-            path="login"
-            element={<AuthenticationPage LoginAndRegisterView={<Login />} />}
-          />
-          <Route
-            path="register"
-            element={<AuthenticationPage LoginAndRegisterView={<Register />} />}
-          />
+          <Route path="login" element={<Auth RightBody={<Login />} />} />
+          <Route path="register" element={<Auth RightBody={<Register />} />} />
         </Route>
+        <Route path="site/:siteId" loader={SiteLoader} element={<Site />} />
+        <Route
+          path="checkin/:siteId"
+          loader={SiteLoader}
+          element={<Checkin />}
+        />
       </Route>
     )
   );
